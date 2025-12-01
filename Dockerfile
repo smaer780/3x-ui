@@ -13,7 +13,7 @@ RUN apk --no-cache --update add \
 
 COPY . .
 
-ENV CGO_ENABLED=1
+ENV CGO_ENABLED=0
 ENV CGO_CFLAGS="-D_LARGEFILE64_SOURCE"
 RUN go build -ldflags "-w -s" -o build/x-ui main.go
 RUN ./DockerInit.sh "$TARGETARCH"
